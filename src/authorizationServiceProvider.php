@@ -20,6 +20,12 @@ class authorizationServiceProvider extends ServiceProvider
         // Publishes
 
         $this->publishes([
+            __DIR__.'/Database/migrations'=>base_path('database/migrations')
+        ]);
+        $this->publishes([
+            __DIR__.'/Database/seeds'=>base_path('database/seeds')
+        ]);
+        $this->publishes([
             __DIR__.'/Resources/Views/authorization'=>base_path('resources/views')
         ]);
         $this->publishes([
