@@ -15,8 +15,6 @@ class authorizationServiceProvider extends ServiceProvider
     {
         // Load routes
         $this->loadRoutesFrom(__DIR__ . '/Routes/routes.php');
-        // Load Migrations
-        $this->loadMigrationsFrom(__DIR__.'/Database/migrations');
         // Publishes
 
         $this->publishes([
