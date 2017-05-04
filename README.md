@@ -1,7 +1,11 @@
 # About Authorization Package
 
+## Configuration
 
-
+----------------------------------------------------------------------
+'authorization'=>\App\Http\Middleware\AuthorizationMiddleware::class,
+----------------------------------------------------------------------
+register this line in app/Http/kernel.php "routeMiddleware" section
 ### In Composer.json
  
     "require": {
