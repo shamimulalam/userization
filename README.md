@@ -37,6 +37,10 @@
     
 #### Extra
     ##### canViewButton() 
+    Add this file to composer autoload
+    "autoload": {
+        "files": ["app/Http/AuthorizationHelper.php"]
+    },
     It's a global function. it take to parameter. first one is required and second one is optional.
      - First Parameter => send uri or route 
         Ex. canViewButton('permission/create');
