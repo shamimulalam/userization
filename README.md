@@ -1,11 +1,5 @@
 # About Authorization Package
 
-## Configuration
-
-----------------------------------------------------------------------
-'authorization'=>\App\Http\Middleware\AuthorizationMiddleware::class,
-----------------------------------------------------------------------
-register this line in app/Http/kernel.php "routeMiddleware" section
 ### In Composer.json
  
     "require": {
@@ -23,12 +17,16 @@ register this line in app/Http/kernel.php "routeMiddleware" section
     ----------------------------------------------------------------
     adamilleriam\authorization\authorizationServiceProvider::class,
     ----------------------------------------------------------------
+    
 #### Config
  Package has a config file in config folder. The name of this file is  authorization.php
-  First have to add master_template and content_area with master template location and content are name.
+  First have to add master_template and content_area with master template location and content area name.
   Then add per_page field for pagination.
-  
-  
+
+----------------------------------------------------------------------
+'authorization'=>\App\Http\Middleware\AuthorizationMiddleware::class,
+----------------------------------------------------------------------
+register this line in app/Http/kernel.php "routeMiddleware" section
 #### Rules
     add role button on user list page 
     - Route = role_user.index (send with user id)
