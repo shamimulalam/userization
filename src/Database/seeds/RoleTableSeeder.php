@@ -1,0 +1,2 @@
+INSERT INTO `roles` (`id`, `title`, `description`, `status`, `deleted_at`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
+(1, 'admin', 'bla bla', 'Active', NULL, 0, NULL, '2017-04-26 00:31:17', '2017-04-26 00:31:17');
