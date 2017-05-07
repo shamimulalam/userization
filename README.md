@@ -9,7 +9,7 @@
     "repositories":[
         {
             "type": "git",
-            "url": "git@github.com:adamilleriam/authorization.git"
+            "url": "https://github.com/adamilleriam/authorization.git"
         }
     ],
     
@@ -17,10 +17,11 @@
     ----------------------------------------------------------------
     adamilleriam\authorization\authorizationServiceProvider::class,
     ----------------------------------------------------------------
-    
+    Now Run composer update
 #### Vendor Publish
-    After complete composer update please Run
-    php artisan vendor:publish
+    After complete composer update please Run "php artisan vendor:publish"
+    and 
+    Run "composer dump-autoload"
 #### Config
  Package has a config file in config folder. The name of this file is  authorization.php
   First have to add master_template and content_area with master template location and content area name.
@@ -33,7 +34,7 @@ register this line in app/Http/kernel.php "routeMiddleware" section
 
 ### Migration
 Before run "php artisan migrate" please add a user id in authorization config file.
-Provided user will got all privilege in authorization.
+Provided user will get all privilege in authorization.
  Then run "php artisan migrate"
 
 #### Rules
