@@ -15,7 +15,7 @@
     
     and add this line in config/app.php providers array
     ----------------------------------------------------------------
-    adamilleriam\authorization\authorizationServiceProvider::class,
+    adamilleriam\authorization\userizationServiceProvider::class,
     ----------------------------------------------------------------
     Now Run composer update
 #### Vendor Publish
@@ -28,7 +28,7 @@
   Then add per_page field for pagination.
 
 ----------------------------------------------------------------------
-'authorization'=>\App\Http\Middleware\AuthorizationMiddleware::class,
+'userization'=>\App\Http\Middleware\UserizationMiddleware::class,
 ----------------------------------------------------------------------
 register this line in app/Http/kernel.php "routeMiddleware" section
 
@@ -51,7 +51,7 @@ Provided user will get all privilege in authorization.
     ##### canViewButton() 
     Add this file to composer autoload
     "autoload": {
-        "files": ["app/Http/AuthorizationHelper.php"]
+        "files": ["app/Http/UserizationHelper.php"]
     },
     It's a global function. it take to parameter. first one is required and second one is optional.
      - First Parameter => send uri or route 
