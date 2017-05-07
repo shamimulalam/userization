@@ -16,7 +16,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group(['namespace'=> 'App\Http\Controllers\Authorization','middleware'=>'authorization'], function() {
+Route::group(['namespace'=> 'App\Http\Controllers\Authorization','middleware'=>['web','authorization']], function() {
 
     /**
      *Role CRUDE

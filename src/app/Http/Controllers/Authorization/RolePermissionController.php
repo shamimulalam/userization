@@ -41,7 +41,7 @@ class RolePermissionController extends Controller
             $serial=(($role->currentPage()-1)*$role->perPage())+1;
         }
         $data['serial']=$serial;
-        return view('admin.user.rolePermission.index',$data);
+        return view('rolePermission.index',$data);
     }
     public function create($id)
     {   $data['role_id']=$id;
@@ -55,7 +55,7 @@ class RolePermissionController extends Controller
             $data['alert']="No Route Exist !";
 
         }
-        return view('admin.user.rolePermission.create',$data);
+        return view('rolePermission.create',$data);
     }
     public function store(Request $request){
         DB::beginTransaction();

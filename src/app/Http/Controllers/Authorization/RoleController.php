@@ -44,7 +44,7 @@ class RoleController extends Controller
             $serial=(($roles->currentPage()-1)*$roles->perPage())+1;
         }
         $data['serial']=$serial;
-        return view('admin.user.role.index',$data);
+        return view('role.index',$data);
     }
 
     /**
@@ -56,7 +56,7 @@ class RoleController extends Controller
     {
 
         $data['title']='Add Role';
-        return view('admin.user.role.create',$data);
+        return view('role.create',$data);
 
     }
 
@@ -95,7 +95,7 @@ class RoleController extends Controller
     {
         $data['title']='Edit User';
         $data['role']=Role::withTrashed()->where('id',$id)->first();
-        return view('admin.user.role.edit',$data);
+        return view('role.edit',$data);
     }
 
     /**

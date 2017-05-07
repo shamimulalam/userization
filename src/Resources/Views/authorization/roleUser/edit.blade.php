@@ -5,14 +5,15 @@
     <div class="box box-default">
 
         <!-- /.box-header -->
-        {!! Form::open(['route'=>'role_user.store','method'=>'post','files'=> true]) !!}
+
+        {!! Form::model($role,['route'=>['roleUser',$role->id],'method'=>'put','files'=> true]) !!}
         <div class="box-body">
             <div class="row">
-                @include('admin.user.role_user._form')
+                @include('admin.user.role._form')
             </div>
             <div class="row">
                 <div class="col-xs-6">
-                    {!! Form::submit('Save',['class'=>'btn btn-success pull-right']) !!}
+                    {!! Form::submit('Update',['class'=>'btn btn-success pull-right']) !!}
 
                 </div>
                 <div class="col-xs-6">
@@ -20,8 +21,7 @@
                 </div>
             </div>
         </div>
-    {!! Form::close() !!}
-    <!-- /.box-body -->
+        {!! Form::close() !!}
 
     </div>
     <!-- /.box -->

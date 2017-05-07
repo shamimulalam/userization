@@ -13,7 +13,7 @@
                     </div>
 
 
-                    {!! Form::open(['route'=>['role_user.index',$id],'method'=>'get']) !!}
+                    {!! Form::open(['route'=>['roleUser',$id],'method'=>'get']) !!}
 
                     <div class="col-md-2" style="padding-top: 5px;padding-bottom: 5px;">
                         {!! Form::select('search',['Active'=>'Active','Inactive'=>'Inactive','Trashed'=>'Trashed'],\Illuminate\Support\Facades\Input::get('search'),[ 'class'=>'form-control',

@@ -33,7 +33,7 @@ class PermissionController extends Controller
             $serial=(($permission->currentPage()-1)*$permission->perPage())+1;
         }
         $data['serial']=$serial;
-        return view('admin.user.permission.index',$data);
+        return view('permission.index',$data);
     }
 
     /**
@@ -85,7 +85,7 @@ class PermissionController extends Controller
             }
         }
         $data['routes']=$route_list;
-        return view('admin.user.permission.create',$data);
+        return view('permission.create',$data);
     }
     public function _checkUriExist($uri)
     {

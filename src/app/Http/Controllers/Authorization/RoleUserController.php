@@ -34,7 +34,7 @@ class RoleUserController extends Controller
         $serial=1;
         $data['serial']=$serial;
         $data['id']=$id;
-        return view('admin.user.role_user.index',$data);
+        return view('roleUser.index',$data);
     }
 
     /**
@@ -48,7 +48,7 @@ class RoleUserController extends Controller
         $data['title']='Add Role User';
         $data['roles']=Role::where('status','Active')->pluck('title','id');
         $data['id']=$id;
-        return view('admin.user.role_user.create',$data);
+        return view('roleUser.create',$data);
 
     }
 

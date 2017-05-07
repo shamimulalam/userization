@@ -59,3 +59,7 @@ Provided user will get all privilege in authorization.
      - Second Parameter => type is it URI or Route. default is URI. if you send route then you have to mention it. 
         EX. canViewButtton('permission.create','route')
     
+#Dependencies
+1. Bootstrap
+2. Jquery
+3. Laravel Collective (https://laravelcollective.com/docs/5.0/html)
