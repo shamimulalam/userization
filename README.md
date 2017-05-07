@@ -18,6 +18,9 @@
     adamilleriam\authorization\authorizationServiceProvider::class,
     ----------------------------------------------------------------
     
+#### Vendor Publish
+    After complete composer update please Run
+    php artisan vendor:publish
 #### Config
  Package has a config file in config folder. The name of this file is  authorization.php
   First have to add master_template and content_area with master template location and content area name.
