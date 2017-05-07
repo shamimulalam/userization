@@ -1,18 +1,19 @@
-@extends(config('authorization.master_template'))
+@extends(config('userization'))
 @section(config('authorization.content_area'))
 
     <!-- SELECT2 EXAMPLE -->
-    <div class="box box-default">
+    <div class="panel panel-info">
 
-        <!-- /.box-header -->
-        {!! Form::open(['route'=>'roleUser','method'=>'post','files'=> true]) !!}
-        <div class="box-body">
+        <!-- /.panel-header -->
+
+        {!! Form::model($role,['route'=>['role.update',$role->id],'method'=>'put','files'=> true]) !!}
+        <div class="panel-body">
             <div class="row">
-                @include('admin.user.roleUser._form')
+                @include('userization.role._form')
             </div>
             <div class="row">
                 <div class="col-xs-6">
-                    {!! Form::submit('Save',['class'=>'btn btn-success pull-right']) !!}
+                    {!! Form::submit('Update',['class'=>'btn btn-success pull-right']) !!}
 
                 </div>
                 <div class="col-xs-6">
@@ -20,9 +21,8 @@
                 </div>
             </div>
         </div>
-    {!! Form::close() !!}
-    <!-- /.box-body -->
+        {!! Form::close() !!}
 
     </div>
-    <!-- /.box -->
+    <!-- /.panel -->
 @endsection

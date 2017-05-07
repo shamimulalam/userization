@@ -1,4 +1,4 @@
-@extends(config('authorization.master_template'))
+@extends(config('userization'))
 @section(config('authorization.content_area'))
 
     <!-- SELECT2 EXAMPLE -->
@@ -6,10 +6,10 @@
 
         <!-- /.box-header -->
 
-        {!! Form::model($role,['route'=>['role.update',$role->id],'method'=>'put','files'=> true]) !!}
+        {!! Form::model($role,['route'=>['roleUser',$role->id],'method'=>'put','files'=> true]) !!}
         <div class="box-body">
             <div class="row">
-                @include('admin.user.role._form')
+                @include('userization.role._form')
             </div>
             <div class="row">
                 <div class="col-xs-6">
@@ -21,7 +21,7 @@
                 </div>
             </div>
         </div>
-    {!! Form::close() !!}
+        {!! Form::close() !!}
 
     </div>
     <!-- /.box -->

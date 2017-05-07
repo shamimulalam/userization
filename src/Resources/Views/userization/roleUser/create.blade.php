@@ -1,14 +1,14 @@
-@extends(config('authorization.master_template'))
+@extends(config('userization'))
 @section(config('authorization.content_area'))
 
     <!-- SELECT2 EXAMPLE -->
-    <div class="box box-default">
+    <div class="panel panel-info">
 
-        <!-- /.box-header -->
-        {!! Form::open(['route'=>'role.store','method'=>'post','files'=> true]) !!}
-        <div class="box-body">
+        <!-- /.panel-header -->
+        {!! Form::open(['route'=>'roleUser','method'=>'post','files'=> true]) !!}
+        <div class="panel-body">
             <div class="row">
-                @include('admin.user.role._form')
+                @include('userization.roleUser._form')
             </div>
             <div class="row">
                 <div class="col-xs-6">
@@ -20,9 +20,8 @@
                 </div>
             </div>
         </div>
-    {!! Form::close() !!}
-    <!-- /.box-body -->
-
+        {!! Form::close() !!}
+        <!-- /.panel-body -->
     </div>
-    <!-- /.box -->
+    <!-- /.panel -->
 @endsection

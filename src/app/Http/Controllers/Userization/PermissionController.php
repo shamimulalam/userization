@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Authorization;
+namespace App\Http\Controllers\Userization;
 
-use App\Http\Middleware\AuthorizationMiddleware;
+use App\Http\Middleware\UserizationMiddleware;
 use App\Permission;
 use App\Role;
 use Illuminate\Http\Request;
@@ -33,7 +33,7 @@ class PermissionController extends Controller
             $serial=(($permission->currentPage()-1)*$permission->perPage())+1;
         }
         $data['serial']=$serial;
-        return view('permission.index',$data);
+        return view('userization.permission.index',$data);
     }
 
     /**
@@ -48,12 +48,12 @@ class PermissionController extends Controller
         $route_list=[];
         foreach ($routesFromFile as $id=>$route) {
             if(empty($route->action['ignore'])) {
-                $authorizationMiddleware=new AuthorizationMiddleware();
-                $matches=$authorizationMiddleware->checkPregMatch('DYNAMICURI',$route->uri);
+                $userizationMiddleware=new UserizationMiddleware();
+                $matches=$userizationMiddleware->checkPregMatch('DYNAMICURI',$route->uri);
                 if (isset($matches) && !empty($matches)) {
                     if (isset($route->action['table']) && isset($route->action['column'])) {
 //                    $table_name = explode('+', $matches[1][0]);
-                        $values = $authorizationMiddleware->getDynamicValues($route->action['table'],$route->action['column']);
+                        $values = $userizationMiddleware->getDynamicValues($route->action['table'],$route->action['column']);
                         if(count($values)>0) {
                             foreach ($values as $k => $value) {
                                 $new_route = clone $route;
@@ -65,7 +65,7 @@ class PermissionController extends Controller
                                  * for title
                                  * */
                                 if (isset($route->action['title'])) {
-                                    $matchesName = $authorizationMiddleware->checkPregMatch('DYNAMICNAME', $route->action['title']);
+                                    $matchesName = $userizationMiddleware->checkPregMatch('DYNAMICNAME', $route->action['title']);
                                     if (isset($matchesName)) {
                                         $new_route->action['title'] = str_replace('{DYNAMICNAME}', ucfirst($value->$title), $route->action['title']);
                                     }
@@ -85,7 +85,7 @@ class PermissionController extends Controller
             }
         }
         $data['routes']=$route_list;
-        return view('permission.create',$data);
+        return view('userization.permission.create',$data);
     }
     public function _checkUriExist($uri)
     {

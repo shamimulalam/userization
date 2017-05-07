@@ -1,4 +1,4 @@
-# About Authorization Package
+# About Userization Package
 
 ### In Composer.json
  
@@ -63,3 +63,4 @@ Provided user will get all privilege in authorization.
 1. Bootstrap
 2. Jquery
 3. Laravel Collective (https://laravelcollective.com/docs/5.0/html)
+4. Font Awesome (https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css)

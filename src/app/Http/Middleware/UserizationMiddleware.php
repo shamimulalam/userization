@@ -8,7 +8,7 @@ use App\RoleUser;
 use Closure;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
-class AuthorizationMiddleware
+class UserizationMiddleware
 {
     /**
      * Handle an incoming request.
@@ -25,9 +25,10 @@ class AuthorizationMiddleware
             {
                 return $next($request);
             }
-            return response()->view('admin.errorPage.index');
+            return redirect()->back();
+//            return response()->view('admin.errorPage.index');
         }else{
-            return Redirect::to(config('authorization.redirect_url_while_not_auth'));
+            return Redirect::to(config('userization.redirect_url_while_not_auth'));
         }
     }
     public function getDynamicValues($table,$column)

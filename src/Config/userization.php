@@ -10,5 +10,5 @@ return [
     /**
      * use index while showing permission name
      * */
-    'route_index'=>'title' // values = title or as or uri
+    'route_index'=>'uri' // values = title/as/uri
 ];

@@ -18,19 +18,19 @@ class authorizationServiceProvider extends ServiceProvider
         // Publishes
 
         $this->publishes([
-            __DIR__.'/Database/migrations'=>base_path('database/migrations')
+            __DIR__.'/Database/migrations//userization'=>base_path('database/migrations/userization')
         ]);
         $this->publishes([
-            __DIR__.'/Database/seeds'=>base_path('database/seeds')
+            __DIR__.'/Database/seeds/userization'=>base_path('database/seeds/userization')
         ]);
         $this->publishes([
-            __DIR__.'/Resources/Views/authorization'=>base_path('resources/views')
+            __DIR__ . '/Resources/Views/userization' =>base_path('resources/views/userization')
         ]);
         $this->publishes([
             __DIR__.'/Config'=>base_path('config')
         ]);
         $this->publishes([
-            __DIR__.'/app/Http/Controllers'=>base_path('app/Http/Controllers')
+            __DIR__.'/app/Http/Controllers/Userization'=>base_path('app/Http/Controllers/Userization')
         ]);
         $this->publishes([
             __DIR__.'/app/Http/Middleware'=>base_path('app/Http/Middleware')

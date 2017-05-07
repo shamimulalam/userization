@@ -1,49 +1,62 @@
-@extends(config('authorization.master_template'))
+@extends(config('userization'))
 @section(config('authorization.content_area'))
     <!-- SELECT2 EXAMPLE -->
-    <div class="box">
-        <div class="box-header">
-        @if(isset($routes))
-        <div class="col-xs-6">
-            <div  class="btn check hiddenbutton"> <input type="checkbox" id="checkAll" style="display: none;"/><label for="checkAll" style="color:#00bf00;"><img src="{{ asset('assets/admin/img/check.png') }}" style="height:40px; width:40px;">Check All</label></div>
-            <div  class="btn uncheck hiddenbutton"style="display:none;"> <input type="checkbox" id="uncheckAll" style="display: none;"/><label for="uncheckAll" style="color:#9f191f;"><img src="{{ asset('assets/admin/img/uncheck.png') }}" style="height:40px; width:40px;">Uncheck</label></div>
-        </div>
+    <div class="panel panel-info">
+        <div class="panel-header">
+            @if(isset($routes))
+                <div class="col-xs-6">
+                    <div class="btn check hiddenbutton">
+                        <input type="checkpanel" id="checkAll" style="display: none;"/>
+                        <label for="checkAll" style="color:#00bf00;">
+                            <img src="https://img.clipartfest.com/fa7bcce74062b922d48c582907f428fa_green-check-clipart-clipart-green-check_582-596.png" style="height:40px; width:40px;">Check All
+                            Check All
+                        </label>
+                    </div>
+                    <div class="btn uncheck hiddenbutton"style="display:none;">
+                        <input type="checkpanel" id="uncheckAll" style="display: none;"/>
+                        <label for="uncheckAll" style="color:#9f191f;">
+                            <img src="http://www.myiconfinder.com/uploads/iconsets/256-256-4c515d45f6a8c4fe16e448a692a9370d.png" style="height:40px; width:40px;">
+                            Uncheck
+                        </label>
+                    </div>
+                </div>
                 <div class="col-xs-6">
                     <form id="live-search" action="" class="styled" method="post">
                         <fieldset>
                             <input type="text" class="form-control text-input" placeholder="Please Enter Keyword" id="filter" value="" />
                         </fieldset>
                     </form>
-                </div></div>
-        @endif
-        <!-- /.box-header -->
+                </div>
+            @endif
+        </div>
+        <!-- /.panel-header -->
         {!! Form::open(['route'=>'role_permission.store','method'=>'post']) !!}
         <div class="col-xs-12">
             {!! Form::submit('Save',['class'=>'btn btn-success pull-right']) !!}
         </div>
-        <div class="box-body">
+        <div class="panel-body">
             <div class="row">
                 <?php $div=0; ?>
                 <div class="col-md-3 search">
                     @if(isset($routes))
-                    @foreach($routes as $id=>$route)
-                        <input type="hidden" name="role_id" value="{!! $role_id !!}">
+                        @foreach($routes as $id=>$route)
+                            <input type="hidden" name="role_id" value="{!! $role_id !!}">
                             <label for="{!! $route->id !!}">
-                        <input type="checkbox" id="{!! $route->id !!}"  name="routes[{!! $route->id !!}]" class="checksearch">
+                                <input type="checkpanel" id="{!! $route->id !!}"  name="routes[{!! $route->id !!}]" class="checksearch">
                                 @if(config('authorization.route_index')=='uri')
-                                  {!! $route->route_uri !!}
+                                    {!! $route->route_uri !!}
                                 @endif
-                        @if(isset($route->title))
-                                    @if(config('authorization.route_index')=='title')
-                                  <b>{!! $route->title !!}</b>
+                                @if(isset($route->title))
+                                    @if(config('userization')=='title')
+                                        <b>{!! $route->title !!}</b>
                                     @endif
-                        @endif
-                        @if(isset($route->route_name))
+                                @endif
+                                @if(isset($route->route_name))
                                     @if(config('authorization.route_index')=='as')
-                                    <b>({!! $route->route_name !!})</b>
+                                        <b>({!! $route->route_name !!})</b>
                                     @endif
-                        @endif
-                       </label>
+                                @endif
+                            </label>
                 </div><div class="col-md-3 search">
                     @endforeach
                 </div>
@@ -61,30 +74,30 @@
                 </div>
             </div>
         </div>
-    {!! Form::close() !!}
-    <!-- /.box-body -->
-        <div class="box-footer">
+        {!! Form::close() !!}
+        <!-- /.panel-body -->
+        <div class="panel-footer">
             {{--Visit <a href="https://select2.github.io/">Select2 documentation</a> for more examples and information about--}}
             {{--the plugin.--}}
         </div>
     </div>
-@endsection
-@section('customJs')
+
+    // script here
     <script>
         $(function(){
             $("#checkAll").change(function () {
 
-                $("input:checkbox:visible").prop('checked',$(this).prop("checked"));
+                $("input:checkpanel:visible").prop('checked',$(this).prop("checked"));
                 $(".check").hide();
                 $(".uncheck").show();
             });
 
             $("#uncheckAll").change(function () {
-                $("input:checkbox:visible").prop('checked',$(this).prop("checked"));
+                $("input:checkpanel:visible").prop('checked',$(this).prop("checked"));
                 $(".uncheck").hide();
                 $(".check").show();
             });
-           });
+        });
 
 
         ///search

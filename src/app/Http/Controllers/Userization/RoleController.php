@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Authorization;
+namespace App\Http\Controllers\Userization;
 
 use App\Role;
 use App\RolePermission;
@@ -31,7 +31,7 @@ class RoleController extends Controller
             $roles=$roles->where('status','Active');
         }
 
-        $roles=$roles->orderBy('id','DESC')->paginate(config('authorization.par_page'));
+        $roles=$roles->orderBy('id','DESC')->paginate(config('userization.par_page'));
         if(isset($request->search))
         {
             $render['search']=$request->search;
@@ -44,7 +44,7 @@ class RoleController extends Controller
             $serial=(($roles->currentPage()-1)*$roles->perPage())+1;
         }
         $data['serial']=$serial;
-        return view('role.index',$data);
+        return view('userization.role.index',$data);
     }
 
     /**
@@ -56,7 +56,7 @@ class RoleController extends Controller
     {
 
         $data['title']='Add Role';
-        return view('role.create',$data);
+        return view('userization.role.create',$data);
 
     }
 
@@ -95,7 +95,7 @@ class RoleController extends Controller
     {
         $data['title']='Edit User';
         $data['role']=Role::withTrashed()->where('id',$id)->first();
-        return view('role.edit',$data);
+        return view('userization.role.edit',$data);
     }
 
     /**

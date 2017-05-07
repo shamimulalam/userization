@@ -17,7 +17,7 @@ function canViewButton($uri,$type=false)
             }
         }
     }
-    $mdl=new \App\Http\Middleware\AuthorizationMiddleware();
+    $mdl=new \App\Http\Middleware\UserizationMiddleware();
     if($mdl->checkAccessibility($uri))
     {
         return true;
