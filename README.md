@@ -30,6 +30,12 @@
 'authorization'=>\App\Http\Middleware\AuthorizationMiddleware::class,
 ----------------------------------------------------------------------
 register this line in app/Http/kernel.php "routeMiddleware" section
+
+### Migration
+Before run "php artisan migrate" please add a user id in authorization config file.
+Provided user will got all privilege in authorization.
+ Then run "php artisan migrate"
+
 #### Rules
     add role button on user list page 
     - Route = role_user.index (send with user id)
