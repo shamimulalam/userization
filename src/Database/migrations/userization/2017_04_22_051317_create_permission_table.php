@@ -23,7 +23,7 @@ class CreatePermissionTable extends Migration
             $table->unsignedInteger('updated_by',false)->nullable();
             $table->timestamps();
         });
-        DB::unprepared(file_get_contents("database/seeds/PermissionTableSeeder.php"));
+        DB::unprepared(file_get_contents("database/seeds/userization/PermissionTableSeeder.php"));
 
     }
 

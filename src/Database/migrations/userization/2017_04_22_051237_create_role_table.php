@@ -23,7 +23,7 @@ class CreateRoleTable extends Migration
             $table->unsignedInteger('updated_by',false)->nullable();
             $table->timestamps();
         });
-        DB::unprepared(file_get_contents("database/seeds/RoleTableSeeder.php"));
+        DB::unprepared(file_get_contents("database/seeds/userization/RoleTableSeeder.php"));
 
     }
 
