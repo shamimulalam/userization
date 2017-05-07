@@ -1,5 +1,5 @@
-@extends(config('userization'))
-@section(config('authorization.content_area'))
+@extends(config('userization.master_template'))
+@section(config('userization.content_area'))
 
     <!-- SELECT2 EXAMPLE -->
     <div class="panel panel-info">
