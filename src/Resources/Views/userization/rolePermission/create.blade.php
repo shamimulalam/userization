@@ -18,6 +18,7 @@
                 @endif
             </div>
         </div>
+        {!! Form::open(['route'=>'role_permission.store','method'=>'post']) !!}
         <div class="panel-body">
             <div class="row">
                 <div class="col-md-8">
