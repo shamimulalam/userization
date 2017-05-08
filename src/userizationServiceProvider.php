@@ -4,7 +4,7 @@ namespace adamilleriam\authorization;
 
 use Illuminate\Support\ServiceProvider;
 
-class authorizationServiceProvider extends ServiceProvider
+class userizationServiceProvider extends ServiceProvider
 {
     /**
      * Perform post-registration booting of services.

@@ -4,7 +4,7 @@
  
     "require": {
         ****************
-        "adamilleriam/authorization" : "0.1.*"
+        "adamilleriam/authorization" : "0.3.*"
     },
     "repositories":[
         {
