@@ -5,12 +5,12 @@
  
     "require": {
         ****************
-        "adamilleriam/authorization" : "0.3.*"
+        "adamilleriam/userization" : "0.3.*"
     },
     "repositories":[
         {
             "type": "git",
-            "url": "https://github.com/adamilleriam/authorization.git"
+            "url": "https://github.com/adamilleriam/userization.git"
         }
     ],
     

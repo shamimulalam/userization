@@ -1,12 +1,12 @@
 {
-    "name": "adamilleriam/authorization",
+    "name": "adamilleriam/userization",
     "type": "library",
-    "description": ": Laravel authorization package",
+    "description": ":A laravel authorization package",
     "keywords": [
         "adamilleriam",
         "authorization"
     ],
-    "homepage": "https://github.com/adamilleriam/authorization",
+    "homepage": "https://github.com/adamilleriam/userization",
     "license": "MIT",
     "authors": [
         {
@@ -26,12 +26,12 @@
     },
     "autoload": {
         "psr-4": {
-            "adamilleriam\\authorization\\": "src"
+            "adamilleriam\\userization\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "adamilleriam\\authorization\\": "tests"
+            "adamilleriam\\userization\\": "tests"
         }
     },
     "scripts": {
