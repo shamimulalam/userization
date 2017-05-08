@@ -1,42 +1,45 @@
 @extends(config('userization.master_template'))
 @section(config('userization.content_area'))
+    <div class="breadcrumb">
+        <a href="{!! route('role.index') !!}"> Roles </a>
+        ||
+        <a href="{!! route('permission.index') !!}"> Permissions </a>
+    </div>
 
-    <div class="row placeholders">
+    <div class="row">
         <div class="col-xs-12">
             <!-- /.panel -->
-
             <div class="panel panel-info">
-                <div class="panel-header">
-                    <div class="col-md-2" style="padding-top: 5px;padding-bottom: 5px;">
-                        @if(canViewButton('role_permission/{id}/create'))<a  href="{!! route('role_permission.create',$role_id) !!}" class="btn btn-warning pull-left addNew">Add New Role Permission</a>@endif
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-md-3" >
+                            <h4>Permissions of <b>{!! ucfirst($role->title) !!}</b> Role</h4>
+                        </div>
+                        {!! Form::open(['route'=>['role_permission.index',$role_id],'method'=>'get']) !!}
+                        <div class="col-md-2" style="padding-top: 5px;padding-bottom: 5px;">
+                            {!! Form::text('key',\Illuminate\Support\Facades\Input::get('key'),[ 'class'=>'form-control',
+                            'placeholder'=>' Enter a keyword' ]) !!}
+                        </div>
+                        <div class="col-md-2" style="padding-top: 5px;padding-bottom: 5px;">
+                            {!! Form::select('fields',['title'=>'Title','route_name'=>'Name','route_uri'=>'URI'],\Illuminate\Support\Facades\Input::get('info'),[ 'class'=>'form-control',
+                            'placeholder'=>'Select search column' ]) !!}
+                        </div>
+                        <div class="col-md-2" style="padding-top: 5px;padding-bottom: 5px;">
+                            {!! Form::select('search',['Active'=>'Active','Trashed'=>'Trashed'],\Illuminate\Support\Facades\Input::get('search'),[ 'class'=>'form-control',
+                            'placeholder'=>'Select status']) !!}
+                        </div>
+                        <div class="col-md-1" style="padding-top: 5px;padding-bottom: 5px;">
+                            {!! Form::submit('Search',['class'=>'btn btn-primary']) !!}
+                        </div>
+                        {!! Form::close() !!}
+                        <div class="col-md-2" style="padding-top: 5px;padding-bottom: 5px;">
+                            @if(canViewButton('role_permission/{id}/create'))<a  href="{!! route('role_permission.create',$role_id) !!}" class="btn btn-warning pull-left addNew">Add New Role Permission</a>@endif
+                        </div>
                     </div>
-                    <div class="col-md-1" style="padding-top: 5px;padding-bottom: 5px;">
-                        @if(canViewButton('permission/create'))<a  href="{!! route('permission.create') !!}" class="btn btn-warning pull-left addNew">Permission</a>@endif
-                    </div>
-                    <div class="col-md-1" style="padding-top: 5px;padding-bottom: 5px; margin-left:5px;">
-                        @if(canViewButton('role'))<a  href="{!! route('role.index') !!}" class="btn btn-warning pull-left addNew">Role</a>@endif
-                    </div>
-                    {!! Form::open(['route'=>['role_permission.index',$role_id],'method'=>'get']) !!}
-                    <div class="col-md-2" style="padding-top: 5px;padding-bottom: 5px;">
-                        {!! Form::text('key',\Illuminate\Support\Facades\Input::get('key'),[ 'class'=>'form-control',
-                        'placeholder'=>' Enter A Keyword' ]) !!}
-                    </div>
-                    <div class="col-md-2" style="padding-top: 5px;padding-bottom: 5px;">
-                        {!! Form::select('fields',['title'=>'Title','route_name'=>'Name','route_uri'=>'URI'],\Illuminate\Support\Facades\Input::get('info'),[ 'class'=>'form-control',
-                        'placeholder'=>'Please select' ]) !!}
-                    </div>
-                    <div class="col-md-2" style="padding-top: 5px;padding-bottom: 5px;">
-                        {!! Form::select('search',['Active'=>'Active','Trashed'=>'Trashed'],\Illuminate\Support\Facades\Input::get('search'),[ 'class'=>'form-control',
-                        'placeholder'=>'Please select']) !!}
-                    </div>
-                    <div class="col-md-1" style="padding-top: 5px;padding-bottom: 5px;">
-                        {!! Form::submit('Search',['class'=>'btn btn-primary']) !!}
-                    </div>
-                    {!! Form::close() !!}
                 </div>
         <!-- /.panel-header -->
-                <div class="panel-body table-responsive">
-                    <table id="organogramTable" class="table table-bordered table-striped">
+                <div class="panel-body">
+                    <table id="organogramTable" class="table table-bordered table-striped table-responsive">
                         <thead>
                         <tr>
                             <th>Id</th>

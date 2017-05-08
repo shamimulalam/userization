@@ -3,6 +3,9 @@
 
     <!-- SELECT2 EXAMPLE -->
     <div class="panel panel-info">
+        <div class="panel-heading">
+            <h4>Edit role</h4>
+        </div>
 
         <!-- /.panel-header -->
 

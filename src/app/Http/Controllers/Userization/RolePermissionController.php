@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers\Userization;
+use App\Role;
 use App\RolePermission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -41,6 +42,7 @@ class RolePermissionController extends Controller
             $serial=(($role->currentPage()-1)*$role->perPage())+1;
         }
         $data['serial']=$serial;
+        $data['role']=Role::findOrFail($id);
         return view('userization.rolePermission.index',$data);
     }
     public function create($id)
@@ -55,6 +57,7 @@ class RolePermissionController extends Controller
             $data['alert']="No Route Exist !";
 
         }
+        $data['role']=Role::findOrFail($id);
         return view('userization.rolePermission.create',$data);
     }
     public function store(Request $request){

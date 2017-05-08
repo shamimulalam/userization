@@ -3,7 +3,9 @@
 
     <!-- SELECT2 EXAMPLE -->
     <div class="panel panel-info">
-
+        <div class="panel-heading">
+            <h4>Add new role</h4>
+        </div>
         <!-- /.panel-header -->
         {!! Form::open(['route'=>'role.store','method'=>'post','files'=> true]) !!}
         <div class="panel-body">

@@ -1,35 +1,35 @@
 @extends(config('userization.master_template'))
 @section(config('userization.content_area'))
-
-    <div class="row placeholders">
-        <div class="col-xs-12">
+    <div class="breadcrumb">
+        <a href="{!! route('permission.index') !!}"> Permissions </a>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
             <!-- /.panel -->
             <div class="panel panel-info">
-                <div class="panel-header">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-md-9" style="padding-top: 5px;padding-bottom: 5px;">
+                            @if(canViewButton('role/create'))  <a  href="{!! route('role.create') !!}" class="btn btn-warning pull-left addNew">Add New</a>@endif
 
-                    <div class="col-md-9" style="padding-top: 5px;padding-bottom: 5px;">
-                        @if(canViewButton('role/create'))  <a  href="{!! route('role.create') !!}" class="btn btn-warning pull-left addNew">Add New</a>@endif
+                        </div>
 
+                        {!! Form::open(['route'=>'role.index','method'=>'get']) !!}
+
+                        <div class="col-md-2" style="padding-top: 5px;padding-bottom: 5px;">
+                            {!! Form::select('search',['Active'=>'Active','Inactive'=>'Inactive','Trashed'=>'Trashed'],\Illuminate\Support\Facades\Input::get('search'),[ 'class'=>'form-control',
+                            'placeholder'=>'Please select','required' ]) !!}
+                        </div>
+                        <div class="col-md-1" style="padding-top: 5px;padding-bottom: 5px;">
+                            {!! Form::submit('Search',['class'=>'btn btn-primary']) !!}
+                        </div>
+                        {!! Form::close() !!}
                     </div>
-
-                    {!! Form::open(['route'=>'role.index','method'=>'get']) !!}
-
-                    <div class="col-md-2" style="padding-top: 5px;padding-bottom: 5px;">
-                        {!! Form::select('search',['Active'=>'Active','Inactive'=>'Inactive','Trashed'=>'Trashed'],\Illuminate\Support\Facades\Input::get('search'),[ 'class'=>'form-control',
-                        'placeholder'=>'Please select','required' ]) !!}
-                    </div>
-                    <div class="col-md-1" style="padding-top: 5px;padding-bottom: 5px;">
-                        {!! Form::submit('Search',['class'=>'btn btn-primary']) !!}
-                    </div>
-                    {!! Form::close() !!}
-
-
-
                 </div>
 
                 <!-- /.panel-header -->
-                <div class="panel-body table-responsive">
-                    <table id="organogramTable" class="table table-bordered table-striped">
+                <div class="panel-body">
+                    <table id="organogramTable" class="table table-bordered table-striped table-responsive">
                         <thead>
                         <tr>
                             <th>Sl</th>

@@ -3,6 +3,9 @@
 
     <!-- SELECT2 EXAMPLE -->
     <div class="box box-default">
+        <div class="panel-heading">
+            <h4>Edit user role</h4>
+        </div>
 
         <!-- /.box-header -->
 
