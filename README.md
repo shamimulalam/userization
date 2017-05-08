@@ -32,13 +32,17 @@
 ----------------------------------------------------------------------
 register this line in app/Http/kernel.php "routeMiddleware" section
 
+Add this file to composer autoload
+    "autoload": {
+        "files": ["app/Http/UserizationHelper.php"]
+    },
 ### Migration
 Before run "php artisan migrate" please add a user id in authorization config file.
 Provided user will get all privilege in authorization.
  Then run 
  #####"php artisan migrate --path=database/migrations/userization"
 
-#### Rules
+### To connect user with role
     add role button on user list page 
     - Route = role_user.index (send with user id)
     - URL   = role_user/{user_id} 
@@ -50,10 +54,7 @@ Provided user will get all privilege in authorization.
     
 #### Extra
     ##### canViewButton() 
-    Add this file to composer autoload
-    "autoload": {
-        "files": ["app/Http/UserizationHelper.php"]
-    },
+    
     It's a global function. it take to parameter. first one is required and second one is optional.
      - First Parameter => send uri or route 
         Ex. canViewButton('permission/create');
