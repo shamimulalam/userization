@@ -24,7 +24,7 @@
     and 
     Run "composer dump-autoload"
 #### Config
- Package has a config file in config folder. The name of this file is  authorization.php
+ Package has a config file in config folder. The name of this file is  userization.php
   First have to add master_template and content_area with master template location and content area name.
   Then add per_page field for pagination.
 
@@ -38,7 +38,7 @@ Add this file to composer autoload
         "files": ["app/Http/UserizationHelper.php"]
     },
 ### Migration
-Before run "php artisan migrate" please add a user id in authorization config file.
+Before run "php artisan migrate" please add a user id in userization config file.
 Provided user will get all privilege in authorization.
  Then run 
  #####"php artisan migrate --path=database/migrations/userization"
