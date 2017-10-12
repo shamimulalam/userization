@@ -43,6 +43,9 @@ Provided user will get all privilege in authorization.
  Then run 
  #####"php artisan migrate --path=database/migrations/userization"
 
+### Add middleware in your route group
+Please add middleware called 'userization' in your route group
+
 ### To connect user with role
     add role button on user list page 
     - Route = role_user.index (send with user id)
