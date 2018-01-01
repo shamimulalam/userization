@@ -26,7 +26,7 @@
                     <div class="btn check hiddenbutton">
                         <input type="checkbox" id="checkAll" style="display: none;"/>
                         <label for="checkAll" style="color:#00bf00;">
-                            <img src="https://img.clipartfest.com/fa7bcce74062b922d48c582907f428fa_green-check-clipart-clipart-green-check_582-596.png"
+                            <img src="http://www.myiconfinder.com/uploads/iconsets/256-256-b87200a0c07928471ed513f34d480468-accept.png"
                                  style="height:40px; width:40px;">
                             Check All
                         </label>
