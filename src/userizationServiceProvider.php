@@ -1,6 +1,6 @@
 <?php
 
-namespace adamilleriam\authorization;
+namespace adamilleriam\userization;
 
 use Illuminate\Support\ServiceProvider;
 

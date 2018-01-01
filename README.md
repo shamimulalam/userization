@@ -16,7 +16,7 @@
     
     and add this line in config/app.php providers array
     ----------------------------------------------------------------
-    adamilleriam\authorization\userizationServiceProvider::class,
+    adamilleriam\userization\userizationServiceProvider::class,
     ----------------------------------------------------------------
     Now Run composer update
 #### Vendor Publish
