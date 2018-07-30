@@ -60,7 +60,7 @@ Please add middleware called 'userization' in your route group
 #### Extra
     Extra fretures are here
 ##### canViewButton() 
-    It's a global function. it take to parameter. first one is required and second one is optional.
+    It's a global function. it take two parameter. first one is required and second one is optional.
      - First Parameter => send uri or route 
         Ex. canViewButton('permission/create');
      - Second Parameter => type is it URI or Route. default is URI. if you send route then you have to mention it. 
