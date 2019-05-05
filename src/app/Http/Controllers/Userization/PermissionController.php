@@ -51,14 +51,25 @@ class PermissionController extends Controller
                 $userizationMiddleware=new UserizationMiddleware();
                 $matches=$userizationMiddleware->checkPregMatch('DYNAMICURI',$route->uri);
                 if (isset($matches) && !empty($matches)) {
-                    if (isset($route->action['table']) && isset($route->action['column'])) {
-//                    $table_name = explode('+', $matches[1][0]);
-                        $values = $userizationMiddleware->getDynamicValues($route->action['table'],$route->action['column']);
+                    if (isset($route->action['table']) && isset($route->action['DYNAMICURI'])) {
+                        if(isset($route->action['DYNAMICURI']) && isset($route->action['DYNAMICNAME']))
+                        {
+                            $values = $userizationMiddleware->getDynamicValues($route->action['table'],[$route->action['DYNAMICURI'],$route->action['DYNAMICNAME']]);
+                        }else{
+                            $values = $userizationMiddleware->getDynamicValues($route->action['table'],[$route->action['DYNAMICURI']]);
+                        }
+                        if(isset($route->action['DYNAMICURI'])){
+                            $DYNAMICURI = $route->action['DYNAMICURI'];
+                        }
+                        if(isset($route->action['DYNAMICNAME'])){
+                            $DYNAMICNAME = $route->action['DYNAMICNAME'];
+                        }else{
+                            $DYNAMICNAME = $route->action['DYNAMICURI'];
+                        }
                         if(count($values)>0) {
                             foreach ($values as $k => $value) {
                                 $new_route = clone $route;
-                                $title = $route->action['column'];
-                                $new_uri = str_replace('{DYNAMICURI}', strtolower($value->$title), $new_route->uri);
+                                $new_uri = str_replace('{DYNAMICURI}', strtolower($value->$DYNAMICURI), $new_route->uri);
                                 $new_route->uri = $new_uri;
 
                                 /**
@@ -67,7 +78,7 @@ class PermissionController extends Controller
                                 if (isset($route->action['title'])) {
                                     $matchesName = $userizationMiddleware->checkPregMatch('DYNAMICNAME', $route->action['title']);
                                     if (isset($matchesName)) {
-                                        $new_route->action['title'] = str_replace('{DYNAMICNAME}', ucfirst($value->$title), $route->action['title']);
+                                        $new_route->action['title'] = str_replace('{DYNAMICNAME}', ucfirst($value->$DYNAMICNAME), $route->action['title']);
                                     }
                                 }
                                 /**
