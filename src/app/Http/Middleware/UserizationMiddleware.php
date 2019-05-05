@@ -89,12 +89,12 @@ class UserizationMiddleware
                     $segment_id=$route_id+1;
                 }
             }
-            $values = $this->getDynamicValues(app()->router->getCurrentRoute()->action['table'],app()->router->getCurrentRoute()->action['column']);
+            $values = $this->getDynamicValues(app()->router->getCurrentRoute()->action['table'],app()->router->getCurrentRoute()->action['DYNAMICURI']);
             if(count($values)>0) {
-                $column = app()->router->getCurrentRoute()->action['column'];
+                $DYNAMICURI = app()->router->getCurrentRoute()->action['DYNAMICURI'];
                 foreach ($values as $k => $value) {
-                    if($value->$column==request()->segment($segment_id)) {
-                        $new_uri = str_replace('{DYNAMICURI}', strtolower($value->$column), $uri);
+                    if($value->$DYNAMICURI==request()->segment($segment_id)) {
+                        $new_uri = str_replace('{DYNAMICURI}', strtolower($value->$DYNAMICURI), $uri);
                         if ($this->checkAccessibilityRegular($new_uri)) {
                             return true;
                         }
