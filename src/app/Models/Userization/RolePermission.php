@@ -20,14 +20,14 @@ class RolePermission extends Model
      */
     public function relRole()
     {
-        return $this->belongsTo('App\Role','role_id','id');
+        return $this->belongsTo('App\Role','role_id','id')->withTrashed();
     }
     /**
      *  Relation Permission Table
      */
     public function relPermission()
     {
-        return $this->belongsTo('App\Permission','permission_id','id');
+        return $this->belongsTo('App\Permission','permission_id','id')->withTrashed();
     }
     /**
      * boot function for created and updated by user
