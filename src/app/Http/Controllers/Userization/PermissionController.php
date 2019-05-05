@@ -192,8 +192,17 @@ class PermissionController extends Controller
         Session::flash('message','Permission Successfully restored.');
         return redirect()->route('permission.index');
     }
+    
     public function destroy($id)
     {
-        //
+        try{
+            Permission::where('id',$id)->forceDelete();
+            Session::flash('message', 'Permission Successfully Deleted');
+        }catch (\Exception $exception)
+        {
+            \Log::error('PermissionController - Destroy - Error: '. $exception->getMessage());
+            Session::flash('message', $exception->getMessage());
+        }
+        return redirect()->back();
     }
 }
